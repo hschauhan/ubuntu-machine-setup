@@ -1,6 +1,6 @@
 ---
 sys_packages: [ 'curl', 'vim', 'git-all', 'ufw', 'emacs-nox', 'xcscope-el', 'build-essential', 'libmpc-dev', 'libgmp3-dev',
-		'asciidoctor', 'ruby-asciidoctor-pdf', 'python3-pip', 'ninja-build' ]
+		'asciidoctor', 'ruby-asciidoctor-pdf', 'python3-pip', 'ninja-build', 'libglib2.0-dev', 'libpixman-1-dev' ]
 hires_packages: [ 'libfdk-aac2', 'libldacbt-abr2', 'libldacbt-enc2', 'libopenaptx0' ]
 blue_audio_packages: [ 'libspa-0.2-bluetooth', 'pipewire-audio-client-libraries', 'wireplumber' ]
 openwrt_packages: [ 'clang', 'flex', 'bison', 'g++', 'gawk', 'gcc-multilib', 'g++-multilib', 'gettext',
