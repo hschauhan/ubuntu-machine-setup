@@ -26,13 +26,6 @@
         line: '%wheel ALL=(ALL) NOPASSWD: ALL'
         validate: '/usr/sbin/visudo -cf %s'
 
-    - name: Disable password authentication for root
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        state: present
-        regexp: '^#?PermitRootLogin'
-        line: 'PermitRootLogin prohibit-password'
-
 # Install Packages
     - name: Update apt
       apt: update_cache=yes
@@ -40,38 +33,6 @@
     - name: Installing required system packages
       apt: name={{ sys_packages }} state=latest
 
-    - name: Installing Hi-Res bluetooth codecs
-      apt: name={{ hires_packages }} state=latest
-
-    - name: Remove pipewire-media-session, if present
-      apt:
-        pkg: pipewire-media-session
-        state: absent
-      become: true
-
-    - name: Installing wireplumber
-      apt: name={{ blue_audio_packages }} state=latest
-
     - name: Installing openwrt build system requirements
       apt: name={{ openwrt_packages }} state=latest
 
-# UFW Setup
-    - name: UFW - Allow SSH connections
-      ufw:
-        rule: allow
-        name: OpenSSH
-
-    - name: UFW - Deny all other incoming traffic by default
-      ufw:
-        state: enabled
-        policy: deny
-        direction: incoming
-
-# Hi-Res audio setup
-    - name: Enable wire plumber service
-      ansible.builtin.systemd:
-        name: wireplumber@
-        enabled: true
-        masked: no
-        state: started
-        scope: user
