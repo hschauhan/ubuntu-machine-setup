@@ -26,13 +26,23 @@
         line: '%wheel ALL=(ALL) NOPASSWD: ALL'
         validate: '/usr/sbin/visudo -cf %s'
 
+    - name: Add 'hchauhan' to 'wheel' group
+      user:
+        name: hchauhan
+        group: hchauhan
+        groups: wheel
+        append: yes
+
 # Install Packages
     - name: Update apt
       apt: update_cache=yes
 
-    - name: Installing required system packages
-      apt: name={{ sys_packages }} state=latest
+    - name: Installing packages
+      apt: name={{ all_packages }} state=latest
 
-    - name: Installing openwrt build system requirements
-      apt: name={{ openwrt_packages }} state=latest
+    - name: Add 'hchauhan' to 'libvirt-qemu' and 'libvirt-dnsmasq' groups
+      user:
+        name: hchauhan
+        groups: libvirt-qemu libvirt-dnsmasq
+        append: yes
 
