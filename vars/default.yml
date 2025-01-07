@@ -4,4 +4,5 @@ all_packages: [ 'curl', 'vim', 'git-all', 'ufw', 'emacs-nox', 'xcscope-el', 'bui
                 'bash-completion', 'clang', 'flex', 'bison', 'g++', 'gawk', 'gettext', 'git', 'libncurses5-dev', 'libssl-dev',
                 'python3-distutils-extra', 'rsync', 'unzip', 'zlib1g-dev', 'file', 'wget', 'fonts-fantasque-sans', 'virt-manager',
                 'tigervnc-standalone-server', 'tigervnc-viewer', 'doas', 'nextcloud-desktop', 'mosh', 'sshfs', 'gparted', 'vlc',
-		'tmux' ]
+		'tmux', 'openssh-server', 'fonts-fantasque-sans', 'fonts-firacode', 'ruby-dev', 'libzstd-dev', 'libwebp-dev',
+		'cmake', 'libcairo-dev', 'libpango1.0-dev', 'libgdk-pixbuf-2.0-dev' ]
